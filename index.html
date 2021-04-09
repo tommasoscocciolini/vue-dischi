@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./master.css">
+</head>
+<body>
+  <div id="root">
+    <div class="top-bar">
+      <h1>Disks Vue</h1>
+      <div class="buttons-container">
+        <select class="" name="" v-model="selectedGenre">
+          <option v-for="genre in genres"> {{genre}} </option>
+        </select>
+        <button type="button" name="button" @click="sortYear()">Click to sort by year</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="flip-card" v-for="disk in disks" v-if="String(disk.genre) == String(selectedGenre) || selectedGenre == 'All'">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img :src="disk.poster" alt="Avatar" style="width:250px;height:250px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>{{disk.author}}</h1>
+            <p class="flip-card-back-title">{{disk.title}}</p>
+            <p>{{disk.genre}} - {{disk.year}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="./main.js" charset="utf-8"></script>
+</body>
+</html>

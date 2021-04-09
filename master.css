@@ -1,0 +1,89 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+#root{
+  /* display: flex;
+  flex-wrap: wrap; */
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-bar{
+  width: 100%;
+  height: 10%;
+  background-color: lightgrey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 2px solid black;
+}
+
+.top-bar .buttons-container select{
+  align-self: center;
+}
+
+.container{
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: 30px; */
+  background-color: lightgrey;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: grey;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back .flip-card-back-title{
+  font-size: 1.2em;
+  font-style: italic;
+}
